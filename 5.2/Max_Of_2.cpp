@@ -11,32 +11,42 @@ class Max
 		cout<<"Enter B:";
 		cin>>b;		
 	}
+	void sum()
+	{
+		cout<<"A(m1a + m2a):"<<a<<endl;
+		cout<<"B(m2b + m2b):"<<b<<endl<<endl;
+	}
 	void get()
 	{
-		cout<<"A:"<<a<<endl;
-		cout<<"B:"<<b<<endl;
-	}
-	Max operator<(Max&m1)
-	{
-		int x,y;
-		x=this->a;
-		y=this->b;
-		Max temp;
-		if(x>y)
+		if(a>b)
 		{
-			temp.a=x;
+			cout<<"A:"<<a<<endl;	
 		}
 		else
 		{
-			temp.b=y;
+			cout<<"B:"<<b<<endl;
 		}
+	}
+	Max operator+(Max&m2)
+	{
+		int x,y;
+		x=this->a+m2.a;
+		y=this->b+m2.b;
+		Max temp;
+		temp.a=x;
+		temp.b=y;
 		return temp;
+	
+		
 	}
 };
 main()
-{
+{ 
 	Max m1,m2,m3;
 	m1.set();
-	m2.get();
+	m2.set();
+	m3=m1+m2;
+	m3.sum();
+	m3.get();
 	
 }
